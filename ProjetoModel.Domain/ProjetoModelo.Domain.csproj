@@ -31,10 +31,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Entities\Client.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="Interfaces\IClientRepository.cs" />
+    <Compile Include="Interfaces\IRepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>

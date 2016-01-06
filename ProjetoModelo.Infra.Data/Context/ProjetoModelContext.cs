@@ -1,7 +1,9 @@
 ﻿using ProjetoModel.Domain.Entities;
+using ProjetoModelo.Infra.Data.EntityConfig;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
@@ -14,7 +16,7 @@ namespace ProjetoModelo.Infra.Data.Context
         public ProjetoModelContext() : base("ProjetoModeloDDD") { }
 
         public DbSet<Client> Clients { get; set; }
-
+        public DbSet<Product> Products { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
@@ -26,6 +28,8 @@ namespace ProjetoModelo.Infra.Data.Context
 
             modelBuilder.Properties<String>().Configure(c => c.HasColumnType("varchar"));
             modelBuilder.Properties<String>().Configure(c => c.HasMaxLength(100));
+            modelBuilder.Configurations.Add(new ClientConfiguration());
+            modelBuilder.Configurations.Add(new ProductConfiguration());
         }
         public override int SaveChanges()
         {

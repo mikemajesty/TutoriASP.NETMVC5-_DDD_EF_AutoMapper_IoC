@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ProjetoModel.Domain.Entities
 {
@@ -10,7 +11,7 @@ namespace ProjetoModel.Domain.Entities
         public string Email { get; set; }
         public DateTime DateRegister { get; set; } = DateTime.Now;
         public bool Ativo { get; set; }
-
+        public IEnumerable<Product> Product { get; set; }
         public bool SpecialClient(Client client)
         {
             return client.Ativo && DateTime.Now.Year - client.DateRegister.Year >= 5;
