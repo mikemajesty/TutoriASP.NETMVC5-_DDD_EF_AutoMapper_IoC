@@ -26,30 +26,34 @@ namespace ProjetoModelo.Infra.Data.Repository
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            this._context.Dispose();
+            this._dbSet = null;
         }
 
         public IEnumerable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+           return _dbSet.ToList();
         }
 
         public TEntity GetByID(int id)
         {
-            throw new NotImplementedException();
+            return _dbSet.Find(id);
+
         }
 
         public int Remove(TEntity entity)
         {
-            throw new NotImplementedException();
+            _dbSet.Remove(entity);
+            return SaveChanges();
         }
 
         public int Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            _context.Entry<TEntity>(entity).State = EntityState.Modified;
+            return SaveChanges();
         }
 
-        public int SaveChanges()
+        private int SaveChanges()
         {
             return _context.SaveChanges();
         }
