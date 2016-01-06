@@ -8,7 +8,7 @@ namespace ProjetoModel.Domain.Entities
         public string Name { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public DateTime DateRegister { get; set; }
+        public DateTime DateRegister { get; set; } = DateTime.Now;
         public bool Ativo { get; set; }
 
         public bool SpecialClient(Client client)
@@ -16,6 +16,6 @@ namespace ProjetoModel.Domain.Entities
             return client.Ativo && DateTime.Now.Year - client.DateRegister.Year >= 5;
         }
 
-
+        
     }
 }
