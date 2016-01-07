@@ -172,10 +172,12 @@
     <Compile Include="AutoMapper\AutoMapperConfig.cs" />
     <Compile Include="AutoMapper\DomainToViewModelMappingProfile.cs" />
     <Compile Include="AutoMapper\ViewModelToDoaminMappingProfile.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\ClientViewModel.cs" />
     <Compile Include="ViewModel\ProductViewModel.cs" />
   </ItemGroup>
@@ -210,10 +212,10 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Client\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -226,6 +228,10 @@
     <ProjectReference Include="..\ProjetoModel.Domain\ProjetoModelo.Domain.csproj">
       <Project>{6db1b920-26e3-48b9-95ab-c40db9b96709}</Project>
       <Name>ProjetoModelo.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetoModelo.Infra.Data\ProjetoModelo.Infra.Data.csproj">
+      <Project>{00fa487b-8687-4ce9-bd94-ed4ca52b20ab}</Project>
+      <Name>ProjetoModelo.Infra.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
