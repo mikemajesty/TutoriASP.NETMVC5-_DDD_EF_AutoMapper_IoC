@@ -39,6 +39,8 @@
     <Compile Include="Interfaces\Services\IClientService.cs" />
     <Compile Include="Interfaces\Services\IProductService.cs" />
     <Compile Include="Interfaces\Services\IServiceBase.cs" />
+    <Compile Include="Services\ClientService.cs" />
+    <Compile Include="Services\ProdutoService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
   </ItemGroup>
   <ItemGroup />
