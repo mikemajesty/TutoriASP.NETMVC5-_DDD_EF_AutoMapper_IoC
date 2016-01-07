@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ProjetoModel.Domain.Interfaces
+namespace ProjetoModel.Domain.Interfaces.Repository
 {
     public interface IRepositoryBase<TEntity> where TEntity : class
     {

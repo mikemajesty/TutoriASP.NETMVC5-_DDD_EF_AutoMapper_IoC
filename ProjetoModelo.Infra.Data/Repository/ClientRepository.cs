@@ -1,10 +1,5 @@
 ﻿using ProjetoModel.Domain.Entities;
-using ProjetoModel.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ProjetoModel.Domain.Interfaces.Repository;
 
 namespace ProjetoModelo.Infra.Data.Repository
 {

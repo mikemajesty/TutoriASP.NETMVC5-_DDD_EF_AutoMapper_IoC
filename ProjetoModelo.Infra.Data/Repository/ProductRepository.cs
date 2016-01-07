@@ -1,5 +1,5 @@
 ﻿using ProjetoModel.Domain.Entities;
-using ProjetoModel.Domain.Interfaces;
+using ProjetoModel.Domain.Interfaces.Repository;
 using System.Collections.Generic;
 using System.Linq;
 

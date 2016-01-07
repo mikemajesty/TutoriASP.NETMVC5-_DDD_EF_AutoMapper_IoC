@@ -1,4 +1,4 @@
-﻿using ProjetoModel.Domain.Interfaces;
+﻿using ProjetoModel.Domain.Interfaces.Repository;
 using ProjetoModelo.Infra.Data.Context;
 using System;
 using System.Collections.Generic;
