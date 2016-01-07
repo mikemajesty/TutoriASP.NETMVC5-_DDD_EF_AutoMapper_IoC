@@ -1,11 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using AutoMapper;
+using ProjetoModel.Domain.Entities;
+using ProjetoModelo.MVC.ViewModel;
 
 namespace ProjetoModelo.MVC.AutoMapper
 {
-    public class ViewModelToDoaminMappingProfile
+    public class ViewModelToDoaminMappingProfile : Profile
     {
+        public ViewModelToDoaminMappingProfile() : 
+            base(nameof(DomainToViewModelMappingProfile))
+        {
+
+        }
+        protected override void Configure()
+        {
+            Mapper.CreateMap<Client, ClientViewModel>();
+            Mapper.CreateMap<Product, ProductViewModel>();
+        }
     }
 }
