@@ -10,6 +10,6 @@ namespace ProjetoModel.Domain.Interfaces
         IEnumerable<TEntity> GetAll();
         int Update(TEntity entity);
         void Dispose();
-        int SaveChanges();
+       
     }
 }
