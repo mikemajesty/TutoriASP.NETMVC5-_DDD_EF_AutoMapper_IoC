@@ -37,17 +37,23 @@ namespace ProjetoModelo.MVC.Controllers
 
         // POST: Client/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(ClientViewModel clientViewModel)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
+                    var clientDomain = Mapper.Map<ClientViewModel, Client>(clientViewModel);
+                    _clientRepository.Add(clientDomain);
+                    return RedirectToAction("Index");
+                }
 
-                return RedirectToAction("Index");
+                return View(clientViewModel);
             }
             catch
             {
-                return View();
+                return View(clientViewModel);
             }
         }
 
