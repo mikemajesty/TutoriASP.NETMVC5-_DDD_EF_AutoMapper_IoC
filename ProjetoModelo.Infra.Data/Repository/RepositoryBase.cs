@@ -11,7 +11,7 @@ namespace ProjetoModelo.Infra.Data.Repository
 {
     public class RepositoryBase<TEntity> : IDisposable, IRepositoryBase<TEntity> where TEntity : class
     {
-        private readonly ProjetoModelContext _context;
+        protected readonly ProjetoModelContext _context;
         protected DbSet<TEntity> _dbSet;
         public RepositoryBase()
         {
