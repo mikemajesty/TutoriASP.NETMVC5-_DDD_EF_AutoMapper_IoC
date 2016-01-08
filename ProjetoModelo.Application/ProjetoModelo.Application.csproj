@@ -40,7 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\IAppServiceBase.cs" />
+    <Compile Include="Interface\IClientAppServicecs.cs" />
+    <Compile Include="Interface\IProductAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ProjetoModel.Domain\ProjetoModelo.Domain.csproj">
+      <Project>{6db1b920-26e3-48b9-95ab-c40db9b96709}</Project>
+      <Name>ProjetoModelo.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
