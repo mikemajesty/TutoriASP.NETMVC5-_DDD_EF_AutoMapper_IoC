@@ -1,32 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using ProjetoModel.Domain;
-using ProjetoModelo.Infra.Data.Repository;
 using AutoMapper;
 using ProjetoModel.Domain.Entities;
 using ProjetoModelo.MVC.ViewModel;
+using ProjetoModelo.Application.Interface;
 
 namespace ProjetoModelo.MVC.Controllers
 {
     public class ClientController : Controller
     {
-        private readonly ClientRepository
-            _clientRepository = new ClientRepository();
+        private readonly IClientAppService _clientApp;
+
+        public ClientController(IClientAppService clientApp)
+        {
+            this._clientApp = clientApp;
+        }
+
         // GET: Client
         public ActionResult Index()
         {
-            
-            var clientViewModel = Mapper.Map<IEnumerable<Client>, IEnumerable<ClientViewModel>>(_clientRepository.GetAll());
+
+            var clientViewModel = Mapper.Map<IEnumerable<Client>, IEnumerable<ClientViewModel>>(_clientApp.GetAll());
             return View(clientViewModel);
         }
+        public ActionResult Special()
+        {
 
+            var clientViewModel = Mapper.Map<IEnumerable<Client>, IEnumerable<ClientViewModel>>(_clientApp.GetSpecialClient());
+            return View(clientViewModel);
+        }
         // GET: Client/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var client = _clientApp.GetByID(id);
+            var clientViewModel = Mapper.Map<Client, ClientViewModel>(client);
+            return View(clientViewModel);
         }
 
         // GET: Client/Create
@@ -45,7 +53,7 @@ namespace ProjetoModelo.MVC.Controllers
                 if (ModelState.IsValid)
                 {
                     var clientDomain = Mapper.Map<ClientViewModel, Client>(clientViewModel);
-                    _clientRepository.Add(clientDomain);
+                    _clientApp.Add(clientDomain);
                     return RedirectToAction("Index");
                 }
 
@@ -60,17 +68,23 @@ namespace ProjetoModelo.MVC.Controllers
         // GET: Client/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var client = _clientApp.GetByID(id);
+            var clientViewModel = Mapper.Map<Client, ClientViewModel>(client);
+            return View(clientViewModel);
         }
 
         // POST: Client/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, ClientViewModel client)
         {
             try
             {
-                // TODO: Add update logic here
 
+                if (ModelState.IsValid)
+                {
+                    var clientDomain = Mapper.Map<ClientViewModel, Client>(client);
+                    _clientApp.Update(clientDomain);
+                }
                 return RedirectToAction("Index");
             }
             catch
@@ -82,17 +96,20 @@ namespace ProjetoModelo.MVC.Controllers
         // GET: Client/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var client = _clientApp.GetByID(id);
+            var clientViewModel = Mapper.Map<Client, ClientViewModel>(client);
+            return View(clientViewModel);
         }
 
         // POST: Client/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(ClientViewModel clients)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                var client = _clientApp.GetByID(clients.ClientID);
+                _clientApp.Remove(client);
                 return RedirectToAction("Index");
             }
             catch

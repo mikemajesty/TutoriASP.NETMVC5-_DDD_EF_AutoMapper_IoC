@@ -5,6 +5,6 @@ namespace ProjetoModelo.Application.Interface
 {
     public interface IClientAppService : IAppServiceBase<Client>
     {
-        IEnumerable<Client> GetSpecialClient(IEnumerable<Client> client);
+        IEnumerable<Client> GetSpecialClient();
     }
 }

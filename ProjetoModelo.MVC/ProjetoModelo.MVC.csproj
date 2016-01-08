@@ -230,9 +230,9 @@
       <Project>{6db1b920-26e3-48b9-95ab-c40db9b96709}</Project>
       <Name>ProjetoModelo.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ProjetoModelo.Infra.Data\ProjetoModelo.Infra.Data.csproj">
-      <Project>{00fa487b-8687-4ce9-bd94-ed4ca52b20ab}</Project>
-      <Name>ProjetoModelo.Infra.Data</Name>
+    <ProjectReference Include="..\ProjetoModelo.Application\ProjetoModelo.Application.csproj">
+      <Project>{1d22bbad-9eb5-476a-8b4b-73c31fdf682e}</Project>
+      <Name>ProjetoModelo.Application</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

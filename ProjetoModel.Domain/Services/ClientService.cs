@@ -2,6 +2,8 @@
 using ProjetoModel.Domain.Entities;
 using ProjetoModel.Domain.Interfaces.Repository;
 using System.Linq;
+using System;
+
 namespace ProjetoModel.Domain.Services
 {
     public class ClientService : ServiceBase<Client>, IClientService
