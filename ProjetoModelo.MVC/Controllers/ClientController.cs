@@ -102,13 +102,13 @@ namespace ProjetoModelo.MVC.Controllers
         }
 
         // POST: Client/Delete/5
-        [HttpPost]
+        [HttpPost,ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(ClientViewModel clients)
+        public ActionResult DeleteConfirmed(int id)
         {
             try
             {
-                var client = _clientApp.GetByID(clients.ClientID);
+                var client = _clientApp.GetByID(id);
                 _clientApp.Remove(client);
                 return RedirectToAction("Index");
             }
