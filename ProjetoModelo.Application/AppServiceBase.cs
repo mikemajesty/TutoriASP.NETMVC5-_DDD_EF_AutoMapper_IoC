@@ -1,4 +1,5 @@
-﻿using ProjetoModelo.Application.Interface;
+﻿using ProjetoModel.Domain.Services;
+using ProjetoModelo.Application.Interface;
 using System;
 using System.Collections.Generic;
 
@@ -6,9 +7,9 @@ namespace ProjetoModelo.Application
 {
     public class AppServiceBase<TEntity> : IDisposable, IAppServiceBase<TEntity> where TEntity : class
     {
-        private readonly IAppServiceBase<TEntity> _serviceBase;
+        private readonly IServiceBase<TEntity> _serviceBase;
 
-        public AppServiceBase(IAppServiceBase<TEntity> _serviceBase)
+        public AppServiceBase(IServiceBase<TEntity> _serviceBase)
         {
             this._serviceBase = _serviceBase;
         }
