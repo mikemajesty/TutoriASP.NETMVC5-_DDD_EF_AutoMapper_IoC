@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 namespace ProjetoModel.Domain.Services
 {
-    public class ProdutoService : ServiceBase<Product>, IProductService
+    public class ProductService : ServiceBase<Product>, IProductService
     {
         private readonly IProductRepository _productRepository;
-        public ProdutoService(IProductRepository productRepository) : 
+        public ProductService(IProductRepository productRepository) : 
             base(productRepository)
         {
             _productRepository = productRepository;
