@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace ProjetoModelo.Application
 {
-    public class ClientAppService : AppServiceBase<Client>, IClientAppService
+    public class ClientAppService : AppServiceBase<Client>, IClientService
     {
         private readonly IClientService _clientService;
         public ClientAppService(IClientService clientService)
